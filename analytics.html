@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- CDN for fontawesome -->
+    <!-- <link href="../../process/fonts/css/fontawesome.css" rel="stylesheet"> -->
+    <!-- <link href="../../process/fonts/css/brands.css" rel="stylesheet"> -->
+    <!-- <link href="../../process/fonts/css/solid.css" rel="stylesheet"> -->
+    <!-- CDN for fontawesome -->
+
+    <title>coronaspeakSpeak</title>
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+    <link rel="stylesheet" type="text/css" href="demo.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="./template.css" />
+    <script type="text/javascript" src='js/test-credentials.js'></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="data/data.json"></script>
+    <script type="text/javascript" src="static/countries.json"></script>
+    <script type="text/javascript" src="static/main.json"></script>
+    <script type="text/javascript" src="static/latlong.json"></script>
+    <link rel="icon"
+    href="https://images.newscientist.com/wp-content/uploads/2020/01/27123401/f0070229-coronaspeakvirus_artwork-spl.jpg?width=300">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
+
+  </head>
+  <style>
+    body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .topnav {
+    background-color: #333;
+    overflow: hidden;
+    background-color: #333;
+    top: 0;
+    width: 100%;
+    }
+
+    .topnav a {
+    float: right;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 20px 20px;
+    text-decoration: none;
+    font-size: 17px;
+    }
+
+    .topnav a:hover {
+    background-color: #F6E0E6;
+    color: black;
+    }
+
+    .topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+    }
+
+    .topnav .icon {
+    display: none;
+    }
+
+
+    .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+    }
+
+
+    .topnav .logo1:hover {
+    background-color: transparent;
+    }
+
+    a.logo1 {
+    float: left;
+    }
+
+    /* roboto-300 - latin_cyrillic-ext */
+    @font-face {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 300;
+      src: url('../fonts/roboto-v20-latin_cyrillic-ext-300.eot'); /* IE9 Compat Modes */
+      src: local('Roboto Light'), local('Roboto-Light'),
+        url('../fonts/roboto-v20-latin_cyrillic-ext-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('../fonts/roboto-v20-latin_cyrillic-ext-300.woff2') format('woff2'), /* Super Modern Browsers */
+        url('../fonts/roboto-v20-latin_cyrillic-ext-300.woff') format('woff'), /* Modern Browsers */
+        url('../fonts/roboto-v20-latin_cyrillic-ext-300.ttf') format('truetype'), /* Safari, Android, iOS */
+        url('../fonts/roboto-v20-latin_cyrillic-ext-300.svg#Roboto') format('svg'); /* Legacy iOS */
+    }
+
+    /* roboto-regular - latin_cyrillic-ext */
+    @font-face {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      src: url('../fonts/roboto-v20-latin_cyrillic-ext-regular.eot'); /* IE9 Compat Modes */
+      src: local('Roboto'), local('Roboto-Regular'),
+        url('../fonts/roboto-v20-latin_cyrillic-ext-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('../fonts/roboto-v20-latin_cyrillic-ext-regular.woff2') format('woff2'), /* Super Modern Browsers */
+        url('../fonts/roboto-v20-latin_cyrillic-ext-regular.woff') format('woff'), /* Modern Browsers */
+        url('../fonts/roboto-v20-latin_cyrillic-ext-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+        url('../fonts/roboto-v20-latin_cyrillic-ext-regular.svg#Roboto') format('svg'); /* Legacy iOS */
+    }
+
+
+
+
+    .goog-logo-link,
+    .goog-logo-link:link,
+    .goog-logo-link:visited,
+    .goog-logo-link:hover,
+    .goog-logo-link:active {
+      visibility: hidden;
+    }
+
+    .goog-te-gadget {
+      margin-top: 20px;
+    }
+
+    #demo1 {
+      cursor: poinpanelter;
+    }
+
+    .goog-te-banner-frame.skiptranslate {
+      display: none !important;
+    }
+
+    body {
+      top: 0px !important;
+    }
+
+    .form-popup {
+      display: none;
+      position: fixed;
+    }
+
+    .goog-te-combo {
+      border: 1px solid #D5DAD9;
+      border-radius: 5px;
+      padding: 1px 1px 1px 10px;
+      -moz-appearance: none;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    #map {
+      height: 600px;
+  border: 9px solid #0d7306;
+    }
+    svg{
+    font-family: Arial, Helvetica, sans-serif; 
+    }
+
+  </style>
+  
+  <body id="markers-on-the-map">
+
+    <script>
+     var property; 
+  function highlight1(item){
+    property = $(item).css("fill");
+    $(item).css("fill","#d8f500")
+    $(item).css("cursor","pointer")
+  }
+  function unhighlight1(item){
+    property = $(item).css("fill",property);
+  }
+  function highlight2(item){
+    property = $(item).css("fill");
+    $(item).css("fill","#d93d76")
+    $(item).css("cursor","pointer")
+  }
+  function unhighlight2(item){
+    property = $(item).css("fill",property);
+  }
+      function whosite() {
+        window.location = "https://experience.arcgis.com/experience/685d0ace521648f8a5beeeee1b9125cd";
+      }
+
+      function countrywidesite() {
+        window.location = "https://coronaspeakspeak.com/website/front-end/demo.html";
+      }
+    </script>
+  
+<div style="background-color: #C70039; height: 35px;"><a href="https://www.coronaspeak.com" style="color:white;">&nbsp;&nbsp;<i class="fa fa-envelope" style="font-size: 20px;color: white;"></i></a><div id="google_translate_element" style="float: right;margin-top: -20px;"></div><a href="https://www.coronaspeakspeak.com/coronaspeak/login.php"><i class="fa fa-bank" title="Regulator Authority Login" style="float: right;font-size:30px;color:white;">&nbsp;</i></a>
+</div>
+
+<div class="topnav"  id="myTopnav">
+   <a href="https://www.coronaspeak.com/coronaspeak/intro.php" class="logo1"><img src="assets/media/company-logos/coronaLogo.png" alt="" width="80px" height="75px" style="margin-left: 15px;" /> &nbsp;<strong style="font-size: 25px;"><span style="color: white;">coronaspeak<span style="color: red;">Speak</span></span></strong></a>
+
+   
+    <a href="https://www.coronaspeak.com/coronaspeak/infologin.php" title="FollowUp Info">
+   <img src="assets/media/company-logos/info1.jpg" height="40" class="blower1" style=" border-radius: 50%; border-width: 2px;   border-color: red;   border-style: solid;"><br><h6>FollowUp Info</h6>
+       
+  </a>
+  <a href="https://www.coronaspeak.com/coronaspeak/caselogin.php" title="FollowUp Case">
+   <img src="assets/media/company-logos/case1.png" height="40" class="idea1"  style=" border-radius: 50%; border-width: 2px;   border-color: red;   border-style: solid;"><br><h6>FollowUp Case</h6>
+  </a>
+   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+  <i class="fa fa-bars"></i></a>
+
+  <div class="nav1" style="margin-right: 40%;margin-top:30px;">
+    <a href=""></a>
+  <a href="https://www.coronaspeak.com/coronaspeak/contributors.php" id="a1">Contributors</a>
+  <!-- <a href="https://www.coronaspeakspeak.com/coronaspeak/donate.php">Donate</a> -->
+  <a href="https://www.coronaspeak.com/coronaspeak/news.php">News</a>  
+  <a href="https://www.coronaspeak.com/coronaspeak/analytics/demo.html">Analytics</a>
+  <a href="https://www.coronaspeak.com/coronaspeak/who.php">W&nbsp;H&nbsp;O</a>
+  </div>
+ 
+
+</div>
+
+
+    <div class="content" style="height: 50px; width: 1116px; opacity:.7;  border-radius:4px;margin-top: -50px;">
+
+    </div>
+<!-- Designing for the footer page starts here -->
+
+
+
+<!-- Designing for the footer page ends here -->
+
+
+
+<!--  <div class="page-header">
+<font color="white" id="heade"> Tracking spread of coronaspeakvirus across the world!!</font>
+<p id="desc">The map below tracks the cases of COVID-19 country-wise.</p>
+</div> -->
+  <style>
+  </style>
+    <div class="">
+      <div class="row">
+        <div class="col-3">
+          <div class="counter1" style="color:red">
+  
+          </div>
+        </div>
+        <div class="col-12">
+          <div id="map"></div>
+        </div>
+      <!--   <div class="col-1">
+          <div class="counter1" style="color:red">
+      <svg width="300" height="300" class="main">
+        <rect x="20" y="100" rx="20" ry="20" width="300" height="100"
+                 style="fill:#ff9500;stroke:black;stroke-width:5;" onmouseover="highlight1(this)" onmouseout="unhighlight1(this)"/>
+        <text x="40" y="75" fill="#262feb" style="color: black;">
+          Country:   
+        </text>
+        <text x="35" y="180" fill="#fff2e0" style="font-size:1.2em">
+          Confirmed Cases:
+        </text>
+        <rect x="20" y="200" rx="20" ry="20" width="300" height="100"
+                 style="fill:red;stroke:black;stroke-width:5;" onmouseover="highlight2(this)" onmouseout="unhighlight2(this)"/>
+        <text x="35" y="280" fill="#fff2e0" style="font-size:1.2em">
+          Death Cases:
+        </text>
+      </svg> 
+    </div>
+  </div> -->
+      </div>
+    </div>
+    <!-- <script type="text/javascript" src='demo.js'></script> -->
+
+ <div class="kt-footer  kt-grid__item kt-grid kt-grid--desktop kt-grid--ver-desktop" id="kt_footer" style="background-color:#C9CCCC;">
+  
+  <div class="kt-container  kt-container--fluid " style="background-color:#C9CCCC;">  
+    <div class="kt-footer__copyright" style="font-size:19px;">
+       The open initiative of &nbsp;<a href="https://nixwhistle.com/"><u>NixWhistle Inc</u></a>
+    </div>
+    <div class="kt-footer__menu" style="float: right;margin-top:-30px;">
+       <a href="https://www.facebook.com/coronaspeakSpeak/" target="_parent"  style="border-width:0px;border:0px;"><img src="./assets/media/company-logos/fb.png" class="hs-image-widget " width="100%" style="max-width: 20PX;max-height: 20PX" alt="facebook" title="facebook"></a>&nbsp;&nbsp;
+       <a href="https://www.linkedin.com/showcase/coronaspeakspeak" target="_parent"  style="border-width:0px;border:0px;"><img src="./assets/media/company-logos/in.png" class="hs-image-widget " width="100%" style="max-width: 20PX; max-height: 20PX" alt="Linkedin" title="Linkedin"></a>&nbsp;&nbsp;
+     <a href="https://twitter.com/coronaspeakSpeak" target="_parent"  style="border-width:0px;border:0px;"><img src="./assets/media/company-logos/twitter.png" class="hs-image-widget " width="100%" style="max-width: 20PX; max-height: 20PX" alt="twitter" title="twitter"></a>&nbsp;&nbsp;
+     <a href="https://instagram.com/coronaspeakSpeak" target="_parent"  style="border-width:0px;border:0px;"><img src="./assets/media/company-logos/instagram.png" class="hs-image-widget " width="100%" style="max-width: 20PX; max-height: 20PX" alt="instagram" title="Instagram"></a>
+    </div>
+
+  </div>
+</div>
+ 
+
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en'
+          }, 'google_translate_element')
+        document.querySelector('.goog-te-gadget').setAttribute('style', 'font-size: 0');
+      }
+      for ( var i in Data) {
+        console.log("Anna")
+        var string = "<text id=\"" + i.replace(" ","_") + "text"  + "\" x=\"150\" y=\"75\" fill=\"#262feb\" style=\"font-size:1.23em;display:none\" \> "  + i + " </text\>"
+  console.log(string)
+  $('.main').append(string);
+  string = "<text  id=\"" + i.replace(" ","_") + "reported"  + "\"  x=\"190\" y=\"180\" fill=\"#fff2e0\" style=\"font-size:1.2em;display:none\"\>" + Data[i]["reported_cases"] + "</text\>"
+  console.log(string)
+  $('.main').append(string);
+  string = "<text  id=\"" + i.replace(" ","_") + "death"  + "\"  x=\"190\" y=\"280\" fill=\"#fff2e0\" style=\"font-size:1.2em;display:none\"\>" + Data[i]["death_cases"] + "</text\>"
+  console.log(string)
+  $('.main').append(string);
+      }
+$("Indiareported").css("display","block");
+
+/**
+ * Adds two SVG markers over the homes of the Chicago Bears and Chicago Cubs
+ *
+ * @param  {H.Map} map      A HERE Map instance within the application
+ */
+var current = "anna"; 
+function func(item){
+  console.log("HI");
+}
+function addSVGMarkers(map){
+  //Create the svg mark-up
+
+  var svgMarkup = '<svg  width="100" height="100" xmlns="http://www.w3.org/2000/svg">' +
+    '<circle stroke="black" fill="${FILL}" cx="50" cy="50" r="50"/>' +
+    '</svg>';
+
+  // console.log(Latlong);
+  var ok = 0;
+  for (var i in Latlong)
+  {
+    var r1 = Data[i]["death_cases"];
+    var r2 = Data[i]["reported_cases"];
+    var svg2Markup = '';
+    var rr1 = r1;
+    var rr2 = r2;
+    if(r2 < 100) 
+    {
+      svg2Markup = '<svg  width="21" height="21" xmlns="http://www.w3.org/2000/svg">' +
+        '<circle stroke="black" fill="${FILL}" cx="10" cy="10" r="${R}" />' +
+        '</svg>';  
+      rr2 = 0;
+    }
+    else if(r2 > 100 && r2 < 1000) 
+    {
+      svg2Markup = '<svg  width="31" height="31" xmlns="http://www.w3.org/2000/svg">' +
+        '<circle stroke="black" fill="${FILL}" cx="15" cy="15" r="${R}" />' +
+        '</svg>';  
+      rr2 = 15;
+    }
+    else if(r2 > 1000 && r2 < 10000) 
+    {
+      svg2Markup = '<svg  width="51" height="51" xmlns="http://www.w3.org/2000/svg">' +
+        '<circle stroke="black" fill="${FILL}" cx="25" cy="25" r="${R}" />' +
+        '</svg>';  
+      rr2 = 25;
+    }
+    else if(r2 > 10000)
+    {
+      svg2Markup = '<svg  width="101" height="101" xmlns="http://www.w3.org/2000/svg">' +
+        '<circle stroke="black" fill="${FILL}" cx="50" cy="50" r="${R}" />' +
+        '</svg>';  
+      rr2 = 50;
+    }
+
+    if(r1 < 5) 
+    {
+      rr1 = 0;
+    }
+    else if(r1 >= 5 && r1 < 20) 
+    {
+      rr1 = 3;
+    }
+    else if(r1 >= 20 && r1 < 50) 
+    {
+      rr1 = 5;
+    }
+    else if(r1 >= 50 && r1 < 100) 
+    {
+      rr1 = 8;
+    }
+    else if(r1 >= 100 && r1 < 1000) 
+    {
+      rr1 = 10;
+    }
+    else if(r1 >= 1000 && r1 < 10000) 
+    {
+      rr1 = 20;
+    }
+    else if(r1 >= 10000)
+    {
+      rr1 = 30;
+    }
+    if(rr1 > rr2) {
+      rr2 = rr1 * 1.5;
+
+    }
+
+    var bearsIcon = new H.map.Icon(
+      svg2Markup.replace('${FILL}', 'red').replace('${STROKE}', 'red').replace('${R}',rr1  )),
+      bearsMarker = new H.map.Marker({lat: Latlong[i]["latt"], lng: Latlong[i]["long"] },
+        {
+          icon: bearsIcon
+        }
+      );
+
+    map.addObject(bearsMarker);
+
+
+
+    var bearsIcon1 = new H.map.Icon(
+      svg2Markup.replace('${FILL}', 'yellow').replace('${STROKE}', 'red').replace('${R}',rr2)),
+      bearsMarker1 = new H.map.Marker({lat: Latlong[i]["latt"], lng: Latlong[i]["long"] },
+        {
+          icon: bearsIcon1
+        }
+      );
+  
+    map.addObject(bearsMarker1);
+    console.log(rr1,rr2)
+  }
+}
+
+
+/**
+ * An event listener is added to listen to tap events on the map.
+ * Clicking on the map displays an alert box containing the latitude and longitude
+ * of the location pressed.
+ * @param  {H.Map} map      A HERE Map instance within the application
+ */
+function setUpClickListener(map) {
+  // Attach an event listener to map display
+  // obtain the coordinates and display in an alert box.
+  map.addEventListener('tap', function (evt) {
+    console.log(evt.currentPointer);
+    var coord = map.screenToGeo(evt.currentPointer.viewportX,
+            evt.currentPointer.viewportY);
+    console.log(coord.lat,coord.lng);
+    var string = "https://eu1.locationiq.com/v1/reverse.php?key=34db3db1256d38&lat=" + coord.lat + "&lon=" + coord.lng + "&format=json";
+    $.getJSON(string, function(data) {
+      //data is the JSON string
+      console.log(data["address"]["country"]);
+  var string = data["address"]["country"].replace(" ","_");
+  console.log(string);
+  $("#" + string + "text").css("display","block");
+  $("#" + current + "text").css("display","none");
+  $("#" + string + "reported").css("display","block");
+  $("#" + current + "reported").css("display","none");
+  $("#" + string + "death").css("display","block");
+  $("#" + current + "death").css("display","none");
+  current = string;
+    });
+  });
+}
+
+$(".main").html($(".main").html());
+/**
+ * Boilerplate map initialization code starts below:
+ */
+
+//Step 1: initialize communication with the platform
+// In your own code, replace variable window.apikey with your own apikey
+var platform = new H.service.Platform({
+  apikey: window.apikey
+});
+var defaultLayers = platform.createDefaultLayers();
+
+//Step 2: initialize a map - this map is centered over Chicago.
+var map = new H.Map(document.getElementById('map'),
+  defaultLayers.vector.normal.map,{
+  center: {lat:19.881944, lng:72.627778},
+  zoom: 3,
+  pixelRatio: window.devicePixelRatio || 1
+});
+// add a resize listener to make sure that the map occupies the whole container
+window.addEventListener('resize', () => map.getViewPort().resize());
+
+//Step 3: make the map interactive
+// MapEvents enables the event system
+// Behavior implements default interactions for pan/zoom (also on mobile touch environments)
+var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+
+// Create the default UI components
+  var ui = H.ui.UI.createDefault(map, defaultLayers);
+
+// Now use the map as required...
+addSVGMarkers(map);
+
+setUpClickListener(map);     
+    </script>
+  </body>
+
+
