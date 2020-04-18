@@ -626,6 +626,21 @@ The maps and district information provides latest data on Covid19 infections, de
               </div>
             </a>
            
+		   <a class="kt-wizard-v3__nav-item" data-ktwizard-type="step">
+              <div class="kt-wizard-v3__nav-body">
+                <div class="kt-wizard-v3__nav-icon">
+                 <i class="flaticon-globe" style="color:#034ea2; "></i>
+                </div>
+                <div class="kt-wizard-v3__nav-label">
+                  <div class="kt-wizard-v3__nav-label-title">
+                    PREDICTED CASES
+                  </div>
+                  <div class="kt-wizard-v3__nav-label-desc">
+                    Confirmed cases for the upcoming days
+                  </div>
+                </div>
+              </div>
+            </a>
            
          
           </div>
@@ -726,6 +741,57 @@ The maps and district information provides latest data on Covid19 infections, de
           <!--end: Form Wizard Step 2-->
 
           <!--begin: Form Wizard Step 3-->
+		  
+          <div class="kt-wizard-v3__content" data-ktwizard-type="step-content">
+            <!-- <div class="kt-heading kt-heading--md">Setup Your Current Location</div> -->
+            <div class="kt-form__section kt-form__section--first">
+              <div class="kt-wizard-v3__form">
+               
+               <div class="col-md-12" id="corona_logo">
+                                                                <div class="card" style=" box-shadow:  1px 1px 2px #D9D7D6, 0 0 25px #D9D7D6, 0 0 5px #D9D7D6;">
+                                             <div class="header" style="background: #afd135;height: 6px;">
+                                                                               
+                                                                        </div>
+																		<?php
+
+$url = 'pediction_till_20th_april.json'; // path to your JSON file
+$data = file_get_contents($url); // put the contents of the file into a variable
+$characters = json_decode($data); // decode the JSON feed
+
+?>
+
+<table>
+	<tbody>
+		<tr>
+			<th>Date</th>
+			<th>Confirmed_cases_higher</th>
+			<th>Confirmed_cases_lower</th>
+			<th>Confirmed_cases_value</th>
+		</tr>
+		<?php foreach ($characters as $character) : ?>
+        <tr>
+            <td>  <?php echo $character->Date; ?> </td>
+            <td>  <?php echo $character->Confirmed_cases_upper_limit; ?> </td>
+			<td>  <?php echo $character->Confirmed_cases_lower_limit; ?> </td>
+			<td>  <?php echo $character->Confirmed_cases_value; ?> </td>
+        </tr>
+		<?php endforeach; ?>
+	</tbody>
+</table>
+
+
+																		
+																	
+                                                                        
+                                                                </div>
+                                             
+                                                      </div>
+                                                     
+
+
+              </div>
+            </div>
+          </div>
        
           <!--end: Form Wizard Step 3-->
 
