@@ -625,8 +625,7 @@ The maps and district information provides latest data on Covid19 infections, de
                 </div>
               </div>
             </a>
-           
-		   <a class="kt-wizard-v3__nav-item" data-ktwizard-type="step">
+           <a class="kt-wizard-v3__nav-item" data-ktwizard-type="step">
               <div class="kt-wizard-v3__nav-body">
                 <div class="kt-wizard-v3__nav-icon">
                  <i class="flaticon-globe" style="color:#034ea2; "></i>
@@ -742,7 +741,7 @@ The maps and district information provides latest data on Covid19 infections, de
 
           <!--begin: Form Wizard Step 3-->
 		  
-          <div class="kt-wizard-v3__content" data-ktwizard-type="step-content">
+		  <div class="kt-wizard-v3__content" data-ktwizard-type="step-content">
             <!-- <div class="kt-heading kt-heading--md">Setup Your Current Location</div> -->
             <div class="kt-form__section kt-form__section--first">
               <div class="kt-wizard-v3__form">
