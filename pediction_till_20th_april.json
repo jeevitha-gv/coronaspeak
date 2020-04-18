@@ -1,0 +1,50 @@
+{
+    "13-Apr-20": {
+        "Date": "13-Apr-20",
+        "Confirmed_cases_upper_limit": "1880301.167",
+        "Confirmed_cases_lower_limit": "1852491.664",
+        "Confirmed_cases_value": "1877779.934"
+    },
+    "14-Apr-20": {
+        "Date": "14-Apr-20",
+        "Confirmed_cases_upper_limit": "1956529.181",
+        "Confirmed_cases_lower_limit": "1925092.105",
+        "Confirmed_cases_value": "1955299.668"
+    },
+    "15-Apr-20": {
+        "Date": "15-Apr-20",
+        "Confirmed_cases_upper_limit": "2032757.195",
+        "Confirmed_cases_lower_limit": "1989358.166",
+        "Confirmed_cases_value": "2033454.652"
+    },
+    "16-Apr-20": {
+        "Date": "16-Apr-20",
+        "Confirmed_cases_upper_limit": "2062953.247",
+        "Confirmed_cases_lower_limit": "2166221.64",
+        "Confirmed_cases_value": "2110217.8"
+    },
+    "17-Apr-20": {
+        "Date": "17-Apr-20",
+        "Confirmed_cases_upper_limit": "2131157.557",
+        "Confirmed_cases_lower_limit": "2255681.042",
+        "Confirmed_cases_value": "2188098.14"
+    },
+    "18-Apr-20": {
+        "Date": "18-Apr-20",
+        "Confirmed_cases_upper_limit": "2190099.981",
+        "Confirmed_cases_lower_limit": "2336911.529",
+        "Confirmed_cases_value": "2261914.035"
+    },
+    "19-Apr-20": {
+        "Date": "19-Apr-20",
+        "Confirmed_cases_upper_limit": "2251510.434",
+        "Confirmed_cases_lower_limit": "2422870.531",
+        "Confirmed_cases_value": "2336132.228"
+    },
+    "20-Apr-20": {
+        "Date": "20-Apr-20",
+        "Confirmed_cases_upper_limit": "2312617.369",
+        "Confirmed_cases_lower_limit": "2523398.129",
+        "Confirmed_cases_value": "2411376.029"
+    }
+}
