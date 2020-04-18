@@ -1,5 +1,6 @@
 <?php
     include "../php/common/config.php";
+    session_start();
     $query = "SELECT * FROM `case` WHERE status='closed' ORDER BY id DESC";
     $result = mysqli_query($link,$query);
 ?>
