@@ -344,20 +344,7 @@ Info - <?php echo substr($_GET['id'], 0, 4) . "  " . substr($_GET['id'], 4, 4) .
       </div>
    </div><br>
 
-   <div class="form-group">
-  <label style="font-size: 14px;  background-color: #f71462;color: white;"></label>
-   
-  <div style="min-height: 200px; max-height: 100px;border:1px solid #C3C8C6;">
-       <?php echo $rows['MUpdate'];?>
-      </div>
-   </div><br>
-    <div class="form-group">
-  <label style="font-size: 14px;  background-color: #f71462;color: white;"></label>
-   
-  <div style="min-height: 200px; max-height: 100px;border:1px solid #C3C8C6;">
-        <?php echo $rows['WBUpdate'];?>
-      </div>
-   </div><br>
+  <br>
 
 
 
