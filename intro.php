@@ -1,3 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+       
+        <meta charset="utf-8" />
+        <style>
+            #container{
+                margin:0 auto;
+                margin-top: 100px;
+                width:100%;
+                overflow:auto;
+            }
+            table.gridtable {
+                margin:0 auto;
+                overflow:auto;
+                font-family: helvetica,arial,sans-serif;
+                font-size:15px;
+                color:#333333;
+                border-width: 1px;
+                border-color: #666666;
+                border-collapse: collapse;
+                text-align: center;
+            }
+            table.gridtable th {
+                border-width: 1px;
+                padding: 8px;
+                border-style: solid;
+                border-color: #666666;
+                /*background-color: #B3D4FC;*/
+            }
+            table.gridtable td {
+                border-width: 1px;
+                padding: 8px;
+                border-style: solid;
+                border-color: #666666;
+               /* background-color: #e3ebf4;*/
+            }
+            .error {
+                color: white;
+                background-color: red;
+            }
+        </style>
+</head>
+
+
+
+
+
+
+
+
+
+
 <?php
  include 'php/common/config.php';
  session_start();
@@ -8,13 +63,13 @@
       $sql="SELECT email,password FROM user Where email= '" . $email. "' and password= '" . $password. "'";
      $result=mysqli_query($link,$sql);
             if($rows=mysqli_fetch_assoc($result))
-             { 
+             {
                $_SESSION['email']=$email;
            $_SESSION['password']=$password;  
-            $_SESSION['last_name']=$name;   
+            $_SESSION['last_name']=$name;  
               $password == 'CoronaSpeak';
                 if(md5($password) == 'aa18ca633f8192787eaef03a9d31187d'){
-              
+             
                if($_SESSION['email']=='CoronaSpeak@nixwhistle.com'&& $rows['password'] == 'CoronaSpeak')
                {
                
@@ -604,9 +659,9 @@ The maps and district information provides latest data on Covid19 infections, de
                   <div class="kt-wizard-v2__nav-label-title">
                    WORLD CASES
                   </div>
-                  <div class="kt-wizard-v2__nav-label-desc">
+                  <!-- <div class="kt-wizard-v2__nav-label-desc">
                     WORLD CASES
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </a>
@@ -619,24 +674,24 @@ The maps and district information provides latest data on Covid19 infections, de
                   <div class="kt-wizard-v2__nav-label-title">
                     TOP 10 COUNTRIES
                   </div>
-                  <div class="kt-wizard-v2__nav-label-desc">
+                  <!-- <div class="kt-wizard-v2__nav-label-desc">
                     Choose Your countries Map
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </a>
-           <a class="kt-wizard-v3__nav-item" data-ktwizard-type="step">
-              <div class="kt-wizard-v3__nav-body">
-                <div class="kt-wizard-v3__nav-icon">
-                 <i class="flaticon-globe" style="color:#034ea2; "></i>
+           <a class="kt-wizard-v2__nav-item" data-ktwizard-type="step">
+              <div class="kt-wizard-v2__nav-body">
+                <div class="kt-wizard-v2__nav-icon">
+                 <i class="flaticon-analytics" style="color:#034ea2; "></i>
                 </div>
-                <div class="kt-wizard-v3__nav-label">
-                  <div class="kt-wizard-v3__nav-label-title">
-                    PREDICTED CASES
+                <div class="kt-wizard-v2__nav-label">
+                  <div class="kt-wizard-v2__nav-label-title">
+                    PREDICTION
                   </div>
-                  <div class="kt-wizard-v3__nav-label-desc">
+                  <!-- <div class="kt-wizard-v2__nav-label-desc">
                     Confirmed cases for the upcoming days
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </a>
@@ -664,7 +719,7 @@ The maps and district information provides latest data on Covid19 infections, de
                                                                                
                                                                         </div>
                                                                 <div class="card" style="border:2px solid #D9D7D6; box-shadow:  1px 1px 2px #D9D7D6, 0 0 25px #D9D7D6, 0 0 5px #D9D7D6;">
-                                                                      
+                                                                     
                                                                         <div class="card-body">
                                                                                 <div id="regions_div" style="height: 550px;">
                                                                                 </div>
@@ -740,48 +795,52 @@ The maps and district information provides latest data on Covid19 infections, de
           <!--end: Form Wizard Step 2-->
 
           <!--begin: Form Wizard Step 3-->
-		  
-		  <div class="kt-wizard-v3__content" data-ktwizard-type="step-content">
+     
+      <div class="kt-wizard-v2__content" data-ktwizard-type="step-content">
             <!-- <div class="kt-heading kt-heading--md">Setup Your Current Location</div> -->
             <div class="kt-form__section kt-form__section--first">
-              <div class="kt-wizard-v3__form">
+              <div class="kt-wizard-v2__form">
                
                <div class="col-md-12" id="corona_logo">
                                                                 <div class="card" style=" box-shadow:  1px 1px 2px #D9D7D6, 0 0 25px #D9D7D6, 0 0 5px #D9D7D6;">
                                              <div class="header" style="background: #afd135;height: 6px;">
                                                                                
                                                                         </div>
-																		<?php
+                                    <?php
 
-$url = 'pediction_till_20th_april.json'; // path to your JSON file
+$url = 'pediction_till_25th_april.json'; // path to your JSON file
 $data = file_get_contents($url); // put the contents of the file into a variable
 $characters = json_decode($data); // decode the JSON feed
 
 ?>
 
-<table>
-	<tbody>
-		<tr>
-			<th>Date</th>
-			<th>Confirmed_cases_higher</th>
-			<th>Confirmed_cases_lower</th>
-			<th>Confirmed_cases_value</th>
-		</tr>
-		<?php foreach ($characters as $character) : ?>
+ <div class="container" id="container">
+        <table class="gridtable">
+
+  <tbody>
+    <tr>
+      <th>Date</th>
+      <th>Confirmed Cases Higher</th>
+      <th>Confirmed Cases Lower</th>
+      <th>Confirmed Cases Value</th>
+    </tr>
+    <?php foreach ($characters as $character) : ?>
         <tr>
             <td>  <?php echo $character->Date; ?> </td>
             <td>  <?php echo $character->Confirmed_cases_upper_limit; ?> </td>
-			<td>  <?php echo $character->Confirmed_cases_lower_limit; ?> </td>
-			<td>  <?php echo $character->Confirmed_cases_value; ?> </td>
+      <td>  <?php echo $character->Confirmed_cases_lower_limit; ?> </td>
+      <td>  <?php echo $character->Confirmed_cases_value; ?> </td>
         </tr>
-		<?php endforeach; ?>
-	</tbody>
+    <?php endforeach; ?>
+  </tbody>
 </table>
 
+</div>
 
-																		
-																	
-                                                                        
+
+                                   
+                                 
+                                                                       
                                                                 </div>
                                              
                                                       </div>
