@@ -322,7 +322,7 @@ span.psw {
       <!-- begin:: Brand -->
 <div class="kt-header__brand   kt-grid__item" id="kt_header_brand">
   <div class="kt-header__brand-logo">
-    <a href="intro.php" style="font-size: 1.2rem;font-weight: 500;">
+    <a href="intro" style="font-size: 1.2rem;font-weight: 500;">
       <img alt="Logo" src="./assets/media/company-logos/speakup1.png" style="height:80px;width:140px;margin-top:-10%;" class="kt-header__brand-logo-default"/>
           <img alt="Logo" src="./assets/media/company-logos/speakup1.png" class="kt-header__brand-logo-sticky" style="height:60px;width:80px;">
           <span style="color:black;" class="cov">COVID-19</span>
@@ -341,7 +341,7 @@ span.psw {
     <ul class="nav nav-tabs  nav-tabs-line " role="tablist" style="margin-top:6%;">
     
       <li class="nav-item" id="speak">
-        <a class="nav-link active" href="case/speakup.php" role="tab" style="font-size: 1.2rem;border-bottom:none;">SPEAK</a>
+        <a class="nav-link active" href="case/speakup" role="tab" style="font-size: 1.2rem;border-bottom:none;">SPEAK</a>
       </li>
       <li class="nav-item" id="hchat">
         <a class="nav-link" href="https://telegra.ph/TN-Corona-Speak-03-27" role="tab" style="font-size: 1.2rem;border-bottom:none;">CHAT</a>

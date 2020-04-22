@@ -2,9 +2,9 @@
 session_start();
     include "../php/common/config.php";
       $ran = $_GET['id'];
-    $query = "SELECT * FROM `case` WHERE ran='$ran'";
+    $query = "SELECT * FROM `case` WHERE (status='created' and heat='low') and ran='$ran'";
   $result=mysqli_query($link,$query);
-     $query1 = "SELECT * FROM `case` WHERE ran='$ran'";
+     $query1 = "SELECT * FROM `case` WHERE (status='created' and heat='low') and ran='$ran'";
   $result2 = mysqli_query($link,$query2);
    if(isset($_POST['submit']))
     {
@@ -17,7 +17,7 @@ session_start();
   $sql1="UPDATE `case` SET Synopsis='$Synopsis',WBU='$WBU',status='$status' WHERE id=$id";
        if(mysqli_query($link,$sql1))
        {
-          header("Location:testingview.php");
+          header("Location:clinicview.php");
          
         }
        else
@@ -343,18 +343,6 @@ Case - <?php echo $_GET['id'];?>
         </div>
         <div class="col-md-6">
           <label style="color: black;">16. Have you  visited outside state or country  in last 21 days?</label><br>
-           <input type="text"  class="form-control"value="<?php echo $rows['visitedoutside']; ?>"disabled style=";background: transparent;">
-         <!--  <span id="category" class="form-control"  style="background: transparent; color: #ffffff;"></span> -->
-        </div>
-      </div>
-      <div class="row form-group">
-        <div class="col-md-6">
-          <label style="color: black;">17. Have you came in contact with anyone affected?</label><br>
-        <!--   <span id="companyName" class="form-control"  style="background: transparent;color: white;"></span> -->
-             <input type="text" class="form-control" value="<?php echo $rows['weaknessbody']; ?>"disabled style="background: transparent;">
-        </div>
-        <div class="col-md-6">
-          <label style="color: black;">18. Have you visited any of the corona infected countries in last 21 days?</label><br>
            <input type="text"  class="form-control"value="<?php echo $rows['visitedoutside']; ?>"disabled style=";background: transparent;">
          <!--  <span id="category" class="form-control"  style="background: transparent; color: #ffffff;"></span> -->
         </div>

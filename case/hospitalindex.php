@@ -349,18 +349,6 @@ Case - <?php echo $_GET['id'];?>
       </div>
       <div class="row form-group">
         <div class="col-md-6">
-          <label style="color: black;">17. Have you came in contact with anyone affected?</label><br>
-        <!--   <span id="companyName" class="form-control"  style="background: transparent;color: white;"></span> -->
-             <input type="text" class="form-control" value="<?php echo $rows['weaknessbody']; ?>"disabled style="background: transparent;">
-        </div>
-        <div class="col-md-6">
-          <label style="color: black;">18. Have you visited any of the corona infected countries in last 21 days?</label><br>
-           <input type="text"  class="form-control"value="<?php echo $rows['visitedoutside']; ?>"disabled style=";background: transparent;">
-         <!--  <span id="category" class="form-control"  style="background: transparent; color: #ffffff;"></span> -->
-        </div>
-      </div>
-      <div class="row form-group">
-        <div class="col-md-6">
           <label style="color: black;">19. Have you or your family came in contact with anyone affected in last 21 days?</label><br>
         <!--   <span id="companyName" class="form-control"  style="background: transparent;color: white;"></span> -->
              <input type="text" class="form-control" value="<?php echo $rows['familycontact']; ?>"disabled style="background: transparent;">

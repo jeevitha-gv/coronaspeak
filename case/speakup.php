@@ -8,13 +8,13 @@
       $sql="SELECT email,password FROM user Where email= '" . $email. "' and password= '" . $password. "'";
      $result=mysqli_query($link,$sql);
             if($rows=mysqli_fetch_assoc($result))
-             {
+             { 
                $_SESSION['email']=$email;
            $_SESSION['password']=$password;  
-            $_SESSION['last_name']=$name;  
+            $_SESSION['last_name']=$name;   
               $password == 'CoronaSpeak';
                 if(md5($password) == 'aa18ca633f8192787eaef03a9d31187d'){
-             
+              
                if($_SESSION['email']=='CoronaSpeak@nixwhistle.com'&& $rows['password'] == 'CoronaSpeak')
                {
                
@@ -145,8 +145,8 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
      
         }
-       
-      if($coughrange!=""||$shortness!=""||$breathing!==""||$drowsy!=""||$chestpain!=""||$weaknessbody!="")
+        
+     else if($coughrange!=""||$shortness!=""||$breathing!==""||$drowsy!=""||$chestpain!=""||$weaknessbody!="")
         {
          $heat="medium";
     $sql="INSERT INTO `case`(category,district,Description,name,email,phone,ran,secretkey,Artifacts,status,taking_test,age,gender,fever,drycough,feelingsmell,throatpain,bodyweak,nohunger,coughrange,shortness,breathing,drowsy,chestpain,weaknessbody,visitedoutside,contactaffect,infectedcountry,familycontact,healthcondition,diseasesymptoms,city,zipcode,heat)
@@ -160,9 +160,9 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
             }
               echo "successfully";
            header("location:casecode.php");
+        } 
         }
-        }
-       if($visitedoutside!=""||$contactaffect!=""||$infectedcountry!=""||$familycontact!=""||$healthcondition!=""||$diseasesymptoms!="")                                
+       else if($visitedoutside!=""||$contactaffect!=""||$infectedcountry!=""||$familycontact!=""||$healthcondition!=""||$diseasesymptoms!="")                                 
         {
     $heat="high";
     $sql="INSERT INTO `case`(category,district,Description,name,email,phone,ran,secretkey,Artifacts,status,taking_test,age,gender,fever,drycough,feelingsmell,throatpain,bodyweak,nohunger,coughrange,shortness,breathing,drowsy,chestpain,weaknessbody,visitedoutside,contactaffect,infectedcountry,familycontact,healthcondition,diseasesymptoms,city,zipcode,heat)
@@ -242,7 +242,7 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
                 header("location:/coronaspeak/case/followup.php?ran=".$rows['ran']);
                }
              }
-           
+            
                else
                {
                  $sql="SELECT secretkey,ran FROM `info` where ran='$ran' and secretkey='$secretkey'";
@@ -1689,7 +1689,7 @@ You can stay anonymous and choose to followup with us also
             <a class="kt-wizard-v3__nav-item" data-ktwizard-type="step">
               <div class="kt-wizard-v3__nav-body">
                 <div class="kt-wizard-v3__nav-label">
-                  <span>5</span> Review
+                  <span>5</span> Review 
                 </div>
                 <div class="kt-wizard-v3__nav-bar"></div>
               </div>
@@ -2457,7 +2457,7 @@ You can stay anonymous and choose to followup with us also
                     <input type="radio" id="difficultwork" name="difficultwork" value="All the time">
                     <label for="difficultwork">All the time</label><span></span></label><br>
                 </div>
-<!--
+<!-- 
                 <div id="div0" name="Description" style="display: ;">
             <p style="font-size: 20px; font-weight: 500">Category :</p>
             <div>
@@ -2591,7 +2591,7 @@ You can stay anonymous and choose to followup with us also
                     <label><b>40. I was worried about situations in which I might panic and make a fool of myself :  </b></label><p id="res40"></p>
                     <label><b>41. I experienced trembling  :  </b></label><p id="res41"></p>
                     <label><b>42. I found it difficult to work up the initiative to do things :  </b></label><p id="res42"></p>
-               
+                    <label><b>43. Category : </b></label><p id="res43"></p>
 
                   </div>
                 </div>
@@ -2605,8 +2605,8 @@ You can stay anonymous and choose to followup with us also
             <button class="btn btn-secondary btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u" data-ktwizard-type="action-prev">
               Previous
             </button>
-         
-                  <input type="submit" name="submit" id="case" value="submit" class="btn btn-success btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u" data-ktwizard-type="action-submit" style="background-color:#afd135;border:2px solid #afd135;">
+          
+                 <input type="submit" value="submit" class="btn btn-success btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u" data-ktwizard-type="action-submit" style="background-color:#afd135;border:2px solid #afd135;">
             <button class="btn btn-brand btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u" data-ktwizard-type="action-next" onclick="showvalue1()">
               Next Step
             </button>
@@ -2736,100 +2736,6 @@ You can stay anonymous and choose to followup with us also
 </body>
 </html>
 <script type="text/javascript">
-  function showvalue1(){
-  var district = document.getElementById('district').value;
-  document.getElementById('district1').innerHTML = district;
-  var zipcode = document.getElementById('zipcode').value;
-  document.getElementById('zipcode1').innerHTML = zipcode;
-  var quitetrivial = document.querySelector('input[name=quitetrivial]:checked').value;
-  document.getElementById('res1').innerHTML = quitetrivial;
-  var dryness = document.querySelector('input[name=dryness]:checked').value;
-  document.getElementById('res2').innerHTML = dryness;
-  var positivefeeling = document.querySelector('input[name=positivefeeling]:checked').value;
-  document.getElementById('res3').innerHTML = positivefeeling;
-  var breathing = document.querySelector('input[name=breathing]:checked').value;
-  document.getElementById('res4').innerHTML = breathing;
-  var getgoing = document.querySelector('input[name=getgoing]:checked').value;
-  document.getElementById('res5').innerHTML = getgoing;
-  var situations = document.querySelector('input[name=situations]:checked').value;
-  document.getElementById('res6').innerHTML = situations;
-  var shakiness = document.querySelector('input[name=shakiness]:checked').value;
-  document.getElementById('res7').innerHTML = shakiness;
-  var relax = document.querySelector('input[name=relax]:checked').value;
-  document.getElementById('res8').innerHTML = relax;
-  var anxious = document.querySelector('input[name=anxious]:checked').value;
-  document.getElementById('res9').innerHTML = anxious;
-  var forward = document.querySelector('input[name=forward]:checked').value;
-  document.getElementById('res10').innerHTML = forward;
-  var upset = document.querySelector('input[name=upset]:checked').value;
-  document.getElementById('res11').innerHTML = upset;
-  var nervous = document.querySelector('input[name=nervous]:checked').value;
-  document.getElementById('res12').innerHTML = nervous;
-  var saddepressed = document.querySelector('input[name=saddepressed]:checked').value;
-  document.getElementById('res13').innerHTML = saddepressed;
-  var impatient = document.querySelector('input[name=impatient]:checked').value;
-  document.getElementById('res14').innerHTML = impatient;
-  var faintness = document.querySelector('input[name=faintness]:checked').value;
-  document.getElementById('res15').innerHTML = faintness;
-  var lostinterest = document.querySelector('input[name=lostinterest]:checked').value;
-  document.getElementById('res16').innerHTML = lostinterest;
-  var worthperson = document.querySelector('input[name=worthperson]:checked').value;
-  document.getElementById('res17').innerHTML = worthperson;
-  var touchy = document.querySelector('input[name=touchy]:checked').value;
-  document.getElementById('res18').innerHTML = touchy;
-  var noticeably = document.querySelector('input[name=noticeably]:checked').value;
-  document.getElementById('res19').innerHTML = noticeably;
-  var goodreason = document.querySelector('input[name=goodreason]:checked').value;
-  document.getElementById('res20').innerHTML = goodreason;
-  var worthwhile = document.querySelector('input[name=worthwhile]:checked').value;
-  document.getElementById('res21').innerHTML = worthwhile;
-  var winddown = document.getElementById('winddown').value;
-  document.getElementById('res22').innerHTML = winddown;
-  var swallowing = document.getElementById('swallowing').value;
-  document.getElementById('res23').innerHTML = swallowing;
-
-  var enjoyment = document.querySelector('input[name=enjoyment]:checked').value;
-  document.getElementById('res24').innerHTML = enjoyment;
-  var physicalexertion = document.querySelector('input[name=physicalexertion]:checked').value;
-  document.getElementById('res25').innerHTML = physicalexertion;
-  var feltdown = document.querySelector('input[name=feltdown]:checked').value;
-  document.getElementById('res26').innerHTML = feltdown;
-  var irritable = document.querySelector('input[name=irritable]:checked').value;
-  document.getElementById('res27').innerHTML = irritable;
-  var closepanic = document.querySelector('input[name=closepanic]:checked').value;
-  document.getElementById('res28').innerHTML = closepanic;
-  var somethingupset = document.querySelector('input[name=somethingupset]:checked').value;
-  document.getElementById('res29').innerHTML = somethingupset;
-  var trivial = document.querySelector('input[name=trivial]:checked').value;
-  document.getElementById('res30').innerHTML = trivial;
-  var enthusiastic = document.querySelector('input[name=enthusiastic]:checked').value;
-  document.getElementById('res31').innerHTML = enthusiastic;
-  var interruptions = document.querySelector('input[name=interruptions]:checked').value;
-  document.getElementById('res32').innerHTML = interruptions;
-  var nervoustension = document.querySelector('input[name=nervoustension]:checked').value;
-  document.getElementById('res33').innerHTML = nervoustension;
-  var prettyworthless = document.querySelector('input[name=prettyworthless]:checked').value;
-  document.getElementById('res34').innerHTML = prettyworthless;
-  var intolerant = document.querySelector('input[name=intolerant]:checked').value;
-  document.getElementById('res35').innerHTML = intolerant;
-  var terrified = document.querySelector('input[name=terrified]:checked').value;
-  document.getElementById('res36').innerHTML = terrified;
-  var hopefulabout = document.querySelector('input[name=hopefulabout]:checked').value;
-  document.getElementById('res37').innerHTML = hopefulabout;
-  var meaningless = document.querySelector('input[name=meaningless]:checked').value;
-  document.getElementById('res38').innerHTML = meaningless;
-  var agitated = document.querySelector('input[name=agitated]:checked').value;
-  document.getElementById('res39').innerHTML = agitated;
-  var panic = document.querySelector('input[name=panic]:checked').value;
-  document.getElementById('res40').innerHTML = panic;
-  var trembling = document.querySelector('input[name=trembling]:checked').value;
-  document.getElementById('res41').innerHTML = trembling;
-  var difficultwork = document.querySelector('input[name=difficultwork]:checked').value;
-  document.getElementById('res42').innerHTML = difficultwork;
- 
-}
-</script>
-<script type="text/javascript">
   function showvalue(){
   var district = document.getElementById('district').value;
   document.getElementById('district1').innerHTML = district;
@@ -2934,3 +2840,5 @@ $("#details1").show();
 </script>
 <?php include '../footer.php'; ?>
 
+
+<!-- Changes Made-->
