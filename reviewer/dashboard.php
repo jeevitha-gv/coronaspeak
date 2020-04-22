@@ -520,3 +520,5 @@ include "sidemenu.php";
       </body>
     
 </html>
+
+<!-- File extension updated -->
