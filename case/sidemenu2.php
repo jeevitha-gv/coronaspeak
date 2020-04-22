@@ -63,7 +63,7 @@
 								</li>
 								<li class="kt-menu__item " aria-haspopup="true"><a href="case/hospitalview.php" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-graph"></i><span class="kt-menu__link-text" style="text-align: center;">Hospital Investigator</span></a>
 								</li>
-                           	 	?>
+                          
                            	 <?php } ?>
 								
 
